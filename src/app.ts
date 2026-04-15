@@ -1,14 +1,9 @@
-import { OpenAPIHono, z } from '@hono/zod-openapi'
+import { z } from '@hono/zod-openapi'
+import createApp from './lib/create-app'
+import configureOpenAPI from './lib/openapi'
 
-import notFound from './middlewares/not-found'
-import onError from './middlewares/on-error'
-import pinoLogger from './middlewares/pino-logger'
-
-const app = new OpenAPIHono()
-
-app.notFound(notFound)
-app.onError(onError)
-app.use(pinoLogger())
+const app = createApp()
+configureOpenAPI(app)
 
 app.openapi({
   path: '/',

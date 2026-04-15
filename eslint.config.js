@@ -4,5 +4,6 @@ export default antfu({
   formatters: true,
   rules: {
     'no-console': 'warn',
+    'ts/consistent-type-definitions': 'off',
   },
 })
