@@ -5,8 +5,12 @@ import notFound from '../middlewares/not-found'
 import onError from '../middlewares/on-error'
 import pinoLogger from '../middlewares/pino-logger'
 
+export function createRouter() {
+  return new OpenAPIHono<AppBindings>({ strict: false })
+}
+
 export default function createApp() {
-  const app = new OpenAPIHono<AppBindings>({ strict: false })
+  const app = createRouter()
 
   app.notFound(notFound)
   app.onError(onError)
