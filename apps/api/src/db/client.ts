@@ -1,6 +1,10 @@
 import { createClient } from '@libsql/client'
 import { drizzle } from 'drizzle-orm/libsql'
 import env from '../env'
+import * as schema from './schema'
 
-const client = createClient({ url: env.DATABASE_URL, authToken: env.DATABASE_TOKEN })
-export const db = drizzle(client)
+const client = createClient({
+  url: env.DATABASE_URL,
+  ...(env.DATABASE_TOKEN ? { authToken: env.DATABASE_TOKEN } : {}),
+})
+export const db = drizzle({ client, schema })

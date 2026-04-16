@@ -1,3 +1,4 @@
+import { AuthStatus } from "@/components/auth-status"
 import { Button } from "@/components/ui/button"
 
 export default function Page() {
@@ -10,7 +11,13 @@ export default function Page() {
           <p>We&apos;ve already added the button component for you.</p>
           <Button className="mt-2">Button</Button>
         </div>
-        <div className="font-mono text-xs text-muted-foreground">
+        <div className="border-border flex flex-col gap-2 border-t pt-4">
+          <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+            Auth
+          </p>
+          <AuthStatus />
+        </div>
+        <div className="text-muted-foreground font-mono text-xs">
           (Press <kbd>d</kbd> to toggle dark mode)
         </div>
       </div>

@@ -1,8 +1,9 @@
-import { Geist, Geist_Mono, Roboto, Space_Grotesk } from "next/font/google"
+import { Geist_Mono, Roboto, Space_Grotesk } from "next/font/google"
 
 import "./globals.css"
+import { StoreProvider } from "@/components/store-provider"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 const spaceGroteskHeading = Space_Grotesk({subsets:['latin'],variable:'--font-heading'});
 
@@ -25,7 +26,9 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", roboto.variable, spaceGroteskHeading.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <StoreProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </StoreProvider>
       </body>
     </html>
   )
