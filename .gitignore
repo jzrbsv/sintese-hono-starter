@@ -26,3 +26,8 @@ lerna-debug.log*
 
 # misc
 .DS_Store
+
+# next
+apps/web/.next/
+apps/web/out/
+apps/api/dist/

@@ -1,5 +1,5 @@
 import type { AppBindings } from './types'
-import { OpenAPIHono, z } from '@hono/zod-openapi'
+import { OpenAPIHono } from '@hono/zod-openapi'
 import serveEmojiFavicon from '../middlewares/emoji-favicon'
 import notFound from '../middlewares/not-found'
 import onError from '../middlewares/on-error'
